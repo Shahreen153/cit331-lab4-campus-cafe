@@ -84,3 +84,51 @@
             <label><input type="radio" name="size" value="Large"> Large</label>
           </fieldset>
           <fieldset class="choice">
+                        <legend>Extras</legend>
+            <label><input type="checkbox" name="extras" value="Extra shot"> Extra shot</label>
+            <label><input type="checkbox" name="extras" value="Oat milk"> Oat milk</label>
+            <label><input type="checkbox" name="extras" value="Whipped cream"> Whipped cream</label>
+          </fieldset>
+        </div>
+
+        <div class="field">
+          <label for="notes">Notes for the barista</label>
+          <textarea id="notes" name="notes" rows="3" maxlength="200"
+                    placeholder="e.g. less sugar, please"></textarea>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn">Place order</button>
+      <p id="message" role="status" aria-live="polite"></p>
+    </form>
+
+    <section class="saved-orders">
+      <h2>Saved orders</h2>
+      <p>These are stored in this browser only.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Orders placed from this browser</caption>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Order</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Pickup</th>
+              <th scope="col">Extras</th>
+            </tr>
+          </thead>
+          <tbody id="orders-body"></tbody>
+        </table>
+      </div>
+      <button type="button" id="clear-orders" class="btn btn-secondary">Clear all orders</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Campus Café &middot; Built for CIT331</p>
+    <p>Learn more: <a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></p>
+  </footer>
+
+  <a class="back-to-top" href="#top" aria-label="Back to top">&uarr;</a>
+</body>
+</html>
