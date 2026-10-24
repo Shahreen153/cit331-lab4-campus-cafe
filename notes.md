@@ -41,3 +41,24 @@ I placed an order for Shahreen Qasim (Cafe Latte, Medium, quantity 1, pickup 14:
 When I entered the name `<b>Test</b>`, the table showed the characters exactly as typed, with the angle brackets visible and no bold text. This happens because the code uses textContent, which treats the text as plain text and never as HTML.
 
 If the code had used row.innerHTML = "<td>" + order.name + "</td>" instead, an attacker could type a name such as `<img src=x onerror="alert('hacked')">`. The browser would treat it as real HTML and run the script. This attack is called XSS (cross-site scripting).
+
+
+## Specificity experiment
+
+When I added `#main p { color: red; }`, the hero paragraph turned red even though `.hero p` comes earlier in the file, because an id selector (1,0,1) has higher specificity than a class plus an element (0,1,1). When I changed it to `main p` (0,0,2), the hero paragraph went back to white because `.hero p` (0,1,1) beats it.
+
+## Selectors I used
+
+| Selector kind | Example from my CSS |
+|---------------|---------------------|
+| Element | `body` |
+| Class | `.hero` |
+| ID | `#main` |
+| Grouping (comma) | `h1, h2, h3` |
+| Descendant (space) | `.nav-list a` |
+| Child (>) | `main > section` |
+| Adjacent sibling (+) | `h1 + p` |
+| Compound (no space, such as a.active) | `.nav-list a.active` |
+| Attribute | `a[href^="http"]` |
+| Pseudo-class | `a:hover` |
+| Pseudo-element | `.menu-group h2::before` |
