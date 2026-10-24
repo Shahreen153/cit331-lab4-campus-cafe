@@ -1,0 +1,53 @@
+/* ===== Campus Café: styles.css ===== */
+
+/* ---------- 1. Reset, tokens and base typography ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --brand: #7a3e1d;
+  --brand-dark: #3b1f0e;
+  --accent: #d98c2b;
+  --bg: #faf6f1;
+  --surface: #ffffff;
+  --text: #2a1b12;
+  --muted: #6b5a4e;
+  --border: #e3d6c9;
+  --space: 16px;
+  --radius: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ---------- 2. Headings, links, focus ---------- */
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--brand-dark);
+  line-height: 1.2;
+}
+h1 { font-size: 2.25rem; margin: 0 0 var(--space); }
+h2 { font-size: 1.6rem;  margin: 0 0 var(--space); }
+h3 { font-size: 1.2rem;  margin: 0 0 8px; }
+
+a { color: var(--brand); }
+a:hover {
+  color: var(--brand-dark);
+  text-decoration-thickness: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
