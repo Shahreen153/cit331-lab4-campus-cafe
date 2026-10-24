@@ -25,6 +25,9 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ---------- 2. Headings, links, focus ---------- */
@@ -43,11 +46,8 @@ a:hover {
   text-decoration-thickness: 3px;
 }
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
   outline: 3px solid var(--brand);
   outline-offset: 3px;
 }
@@ -55,6 +55,8 @@ textarea:focus-visible {
 /* ---------- 3. Page shell ---------- */
 #main {
   max-width: 1000px;
+  width: 100%;
+  flex: 1;
   margin: 0 auto;
   padding: 24px;
 }
@@ -68,11 +70,22 @@ h1 + p {
 
 /* ---------- 4. Header and navigation ---------- */
 .site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: var(--brand-dark);
   color: #fff;
   padding: 12px 24px;
 }
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: #fff;
   text-decoration: none;
   font-family: Georgia, "Times New Roman", serif;
@@ -80,8 +93,10 @@ h1 + p {
   font-weight: 700;
 }
 .nav-list {
+  display: flex;
+  gap: 8px;
   list-style: none;
-  margin: 12px 0 0;
+  margin: 0;
   padding: 0;
 }
 .nav-list li { display: inline-block; }
@@ -103,13 +118,17 @@ h1 + p {
 
 /* ---------- 5. Footer ---------- */
 .site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
   background: var(--brand-dark);
   color: #fff;
   padding: 20px 24px;
 }
 .site-footer p { margin: 4px 0; }
 .site-footer a { color: #fff; }
-
 
 /* ---------- 6. Hero, buttons, cards ---------- */
 .hero {
@@ -160,7 +179,6 @@ h1 + p {
 .logo-figure { text-align: center; }
 figcaption { color: var(--muted); font-size: 0.9rem; }
 
-
 /* ---------- 7. Menu, tables ---------- */
 .menu-group h2::before {
   content: "";
@@ -173,13 +191,21 @@ figcaption { color: var(--muted); font-size: 0.9rem; }
   vertical-align: -0.12em;
 }
 .menu-item {
+  position: relative;
+  flex: 1 1 300px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 20px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 .menu-item p { margin: 0; color: var(--muted); }
+.item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
 .item-head h3 { margin: 0; }
 .price { font-weight: 700; color: var(--brand); }
 
@@ -211,7 +237,6 @@ a[href^="http"]::after {
   content: " \2197";
   font-size: 0.85em;
 }
-
 
 /* ---------- 9. Forms ---------- */
 form > fieldset {
@@ -257,18 +282,7 @@ input[placeholder]:not(:placeholder-shown):invalid {
   color: #0a6b50;
 }
 
-
 /* ---------- 10. Positioning ---------- */
-
-/* sticky: stays at the top while the page scrolls */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-/* absolute: placed inside its nearest positioned parent */
-.menu-item { position: relative; }
 .badge {
   position: absolute;
   top: 12px;
@@ -281,7 +295,6 @@ input[placeholder]:not(:placeholder-shown):invalid {
   border-radius: 999px;
 }
 
-/* fixed: stays in the corner of the screen */
 .back-to-top {
   position: fixed;
   right: 20px;
@@ -300,7 +313,6 @@ input[placeholder]:not(:placeholder-shown):invalid {
 }
 .back-to-top:hover { background: var(--brand-dark); color: #fff; }
 
-/* skip link: parked off-screen until it gets keyboard focus */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -316,35 +328,7 @@ input[placeholder]:not(:placeholder-shown):invalid {
   border-radius: 8px;
 }
 
-
-/* ---------- 11. Flexbox: header, nav, footer ---------- */
-.site-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.nav-list {
-  display: flex;
-  gap: 8px;
-  margin: 0;
-}
-
-.site-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 24px;
-}
-
-/* ---------- 12. Flexbox: cards and menu ---------- */
+/* ---------- 11. Flexbox: cards and menu ---------- */
 .card-row {
   display: flex;
   flex-wrap: wrap;
@@ -353,35 +337,13 @@ input[placeholder]:not(:placeholder-shown):invalid {
 .card-row > .card {
   flex: 1 1 260px;
 }
-
 .menu-list {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
 }
-.menu-item {
-  flex: 1 1 300px;
-  margin-bottom: 0;
-}
-.item-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-}
 
-/* keep the footer at the bottom of short pages */
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-#main {
-  width: 100%;
-  flex: 1;
-}
-
-/* ---------- 13. Flexbox: form layout ---------- */
+/* ---------- 12. Flexbox: form layout ---------- */
 .form-row {
   display: flex;
   flex-wrap: wrap;
@@ -411,8 +373,7 @@ fieldset.choice {
 .saved-orders { margin-top: 40px; }
 .table-wrap { overflow-x: auto; margin-bottom: 16px; }
 
-
-/* ---------- 14. Responsive ---------- */
+/* ---------- 13. Responsive ---------- */
 img {
   max-width: 100%;
   height: auto;
