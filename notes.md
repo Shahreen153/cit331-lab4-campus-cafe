@@ -29,3 +29,15 @@ HTTPS encrypts data that travels across a network, but traffic to 127.0.0.1 neve
 | Item left on "Choose an item..." | The browser said "Please select an item in the list". |
 
 With all fields valid, the page reloaded and `#` was added to the address because of action="#". JavaScript will stop this in the next step.
+
+
+
+## Order feature test (Lab 4, Task 3)
+
+I placed an order for Shahreen Qasim (Cafe Latte, Medium, quantity 1, pickup 14:59, extra: Whipped cream). The page did not reload, a thank-you message appeared, and the order was shown in the Saved orders table. The order was still there after refreshing the page, which shows it is stored in localStorage and not in a variable.
+
+## XSS challenge (Lab 4, Task 3)
+
+When I entered the name `<b>Test</b>`, the table showed the characters exactly as typed, with the angle brackets visible and no bold text. This happens because the code uses textContent, which treats the text as plain text and never as HTML.
+
+If the code had used row.innerHTML = "<td>" + order.name + "</td>" instead, an attacker could type a name such as `<img src=x onerror="alert('hacked')">`. The browser would treat it as real HTML and run the script. This attack is called XSS (cross-site scripting).
