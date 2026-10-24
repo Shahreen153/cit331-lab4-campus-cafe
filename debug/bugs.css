@@ -6,23 +6,30 @@ body {
 }
 
 .menu a {
+  display: inline-block;
+  padding: 12px;
   margin-right: 12px;
 }
 
 .btn {
   background: #1e56d6;
-  colour: #ffffff;
+  color: #ffffff;
   padding: 10px 20px;
   border: none;
   border-radius: 6px;
 }
 
 .btn:hover {
-  background: #0b1f3a
+  background: #0b1f3a;
   cursor: pointer;
 }
 
-.notes {
+.note {
   font-style: italic;
-  color: #999999;
+  color: #595959;
+}
+
+input {
+  padding: 10px;
+  margin: 6px 0 12px;
 }

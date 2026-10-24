@@ -62,3 +62,18 @@ When I added `#main p { color: red; }`, the hero paragraph turned red even thoug
 | Attribute | `a[href^="http"]` |
 | Pseudo-class | `a:hover` |
 | Pseudo-element | `.menu-group h2::before` |
+
+## Bug log (Lab 4, Task 6)
+
+| # | What was wrong (file and line) | Which tool showed it | My fix |
+|---|--------------------------------|----------------------|--------|
+| 1 | bugs.html head: link pointed to style.css but the file is bugs.css | Network tab (404) | Changed href to bugs.css |
+| 2 | bugs.html: <html> had no lang attribute | Lighthouse, W3C validator | Added lang="en" |
+| 3 | bugs.html: <img> had no alt text | Lighthouse | Added alt="Campus Café logo" |
+| 4 | bugs.html: label for="mail" did not match input id="email" | Lighthouse | Changed for to "email" |
+| 5 | bugs.html: navigation was a <div class="menu"> not a <nav> | Accessibility tree | Replaced div with nav |
+| 6 | bugs.html: h1 followed directly by h4 (skipped levels) | Accessibility tree, validator | Changed h4 to h2 |
+| 7 | bugs.css .btn: property "colour" is misspelled | Styles pane | Changed to color |
+| 8 | bugs.css .btn:hover: missing semicolon after background, so cursor was ignored | Styles pane | Added ; |
+| 9 | bugs.css: selector .notes, but the HTML class is note | Styles pane | Renamed selector to .note |
+| 10 | bugs.css .note: #999999 on white has too little contrast | Lighthouse (second run) | Changed to #595959 |
