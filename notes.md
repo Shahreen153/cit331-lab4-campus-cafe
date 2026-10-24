@@ -77,3 +77,10 @@ When I added `#main p { color: red; }`, the hero paragraph turned red even thoug
 | 8 | bugs.css .btn:hover: missing semicolon after background, so cursor was ignored | Styles pane | Added ; |
 | 9 | bugs.css: selector .notes, but the HTML class is note | Styles pane | Renamed selector to .note |
 | 10 | bugs.css .note: #999999 on white has too little contrast | Lighthouse (second run) | Changed to #595959 |
+
+## Live site observations (Lab 4, Task 7)
+
+1. On localhost the protocol was http, the server was Live Server and the Remote Address was 127.0.0.1:5500. On the live site the protocol is https (h2), the server header is GitHub.com and the Remote Address is 185.199.111.153:443. It changed because the live site runs on GitHub's servers across the internet, and the traffic is encrypted with HTTPS.
+2. The padlock shows the connection is encrypted and the certificate (issued by Let's Encrypt, valid from 30 September 2026 to 29 December 2026) proves the site really is github.io. On plain http, an attacker on the same Wi-Fi could read or change the data, such as orders typed in the form.
+3. localStorage belongs to an origin (protocol + host + port). localhost:5500 and shahreen153.github.io are different origins, so the live site could not see the orders saved on localhost.
+4. The missing page returned status 404, and it was sent by GitHub's server (GitHub Pages), not by my own code.
