@@ -51,3 +51,111 @@ textarea:focus-visible {
   outline: 3px solid var(--brand);
   outline-offset: 3px;
 }
+
+/* ---------- 3. Page shell ---------- */
+#main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+main > section, main > aside, main > figure {
+  margin: 0 0 32px;
+}
+h1 + p {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* ---------- 4. Header and navigation ---------- */
+.site-header {
+  background: var(--brand-dark);
+  color: #fff;
+  padding: 12px 24px;
+}
+.brand {
+  color: #fff;
+  text-decoration: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.nav-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+.nav-list li { display: inline-block; }
+.nav-list a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+.nav-list a:not(.active):hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+.nav-list a.active {
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ---------- 5. Footer ---------- */
+.site-footer {
+  background: var(--brand-dark);
+  color: #fff;
+  padding: 20px 24px;
+}
+.site-footer p { margin: 4px 0; }
+.site-footer a { color: #fff; }
+
+
+/* ---------- 6. Hero, buttons, cards ---------- */
+.hero {
+  background: var(--brand);
+  color: #fff;
+  padding: 48px 32px;
+  border-radius: var(--radius);
+}
+.hero h1, .hero p {
+  color: #fff;
+}
+.hero h1 { margin-bottom: 12px; }
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  padding: 12px 24px;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+  color: #fff;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-dark);
+  border-color: var(--brand-dark);
+}
+.btn-secondary:hover {
+  background: var(--brand-dark);
+  color: #fff;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(59, 31, 14, 0.08);
+}
+.logo-figure { text-align: center; }
+figcaption { color: var(--muted); font-size: 0.9rem; }
